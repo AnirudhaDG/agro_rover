@@ -335,8 +335,6 @@ Visualize how each environmental metric varies across the field using scatter pl
 
 
 ```python
-# remove_cell
-# ---------- FIXED SPATIAL SCATTER PLOTS (no scientific notation overlap) ----------
 n_metrics = len(metrics)
 n_cols = 3  # up to 3 plots per row
 n_rows = math.ceil(n_metrics / n_cols)
@@ -393,7 +391,6 @@ Generate a correlation heatmap to understand the statistical relationships betwe
 
 
 ```python
-# remove_cell
 plt.figure(figsize=(10, 6))
 corr = df[metrics].corr()
 sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f")
@@ -415,7 +412,6 @@ Create continuous spatial heatmaps using interpolation to show smooth distributi
 
 
 ```python
-# remove_cell
 df_clean = df.dropna(subset=["latitude", "longitude"] + metrics)
 
 lat = df_clean["latitude"].values
@@ -477,7 +473,6 @@ Load and examine the coordinate data to understand the spatial coverage and samp
 
 
 ```python
-# remove_cell
 ## Coordinate Data
 coor_data = pd.read_csv("./coordinate_data.csv")
 coor_data.head(10)
