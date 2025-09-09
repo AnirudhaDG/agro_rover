@@ -3,6 +3,14 @@
 This notebook analyzes environmental data collected by the agro rover across the field. We'll import necessary libraries and load the cleaned sensor data for comprehensive analysis.
 
 
+
+```python
+# remove_cell
+# Display first 10 rows of the clean data
+print("First 10 rows of the clean environmental data:")
+df.head(10)
+```
+
 ## Time Series Analysis
 
 ### Individual Metric Trends Over Time
@@ -11,6 +19,7 @@ Create a comprehensive time series plot showing how each environmental metric ch
 
 
 ```python
+# remove_cell
 df["time_str"] = pd.to_datetime(df["timestamp"]).dt.strftime("%H:%M:%S")
 
 fig, axes = plt.subplots(len(metrics), 1, figsize=(14, 3*len(metrics)), sharex=True)
@@ -56,7 +65,7 @@ plt.show()
 
 
     
-![png](README_files/README_2_0.png)
+![png](README_files/README_3_0.png)
     
 
 
@@ -110,7 +119,7 @@ plt.show()
 
 
     
-![png](README_files/README_4_0.png)
+![png](README_files/README_5_0.png)
     
 
 
@@ -122,6 +131,7 @@ Visualize how each environmental metric varies across the field using scatter pl
 
 
 ```python
+# remove_cell
 # ---------- FIXED SPATIAL SCATTER PLOTS (no scientific notation overlap) ----------
 n_metrics = len(metrics)
 n_cols = 3  # up to 3 plots per row
@@ -167,7 +177,7 @@ plt.show()
 
 
     
-![png](README_files/README_6_0.png)
+![png](README_files/README_7_0.png)
     
 
 
@@ -179,6 +189,7 @@ Generate a correlation heatmap to understand the statistical relationships betwe
 
 
 ```python
+# remove_cell
 plt.figure(figsize=(10, 6))
 corr = df[metrics].corr()
 sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f")
@@ -190,7 +201,7 @@ plt.show()
 
 
     
-![png](README_files/README_8_0.png)
+![png](README_files/README_9_0.png)
     
 
 
@@ -200,6 +211,7 @@ Create continuous spatial heatmaps using interpolation to show smooth distributi
 
 
 ```python
+# remove_cell
 df_clean = df.dropna(subset=["latitude", "longitude"] + metrics)
 
 lat = df_clean["latitude"].values
@@ -249,7 +261,7 @@ plt.show()
 
 
     
-![png](README_files/README_10_0.png)
+![png](README_files/README_11_0.png)
     
 
 
@@ -261,6 +273,7 @@ Load and examine the coordinate data to understand the spatial coverage and samp
 
 
 ```python
+# remove_cell
 ## Coordinate Data
 coor_data = pd.read_csv("./coordinate_data.csv")
 coor_data.head(10)
@@ -272,6 +285,6 @@ display(Image("./support_images/map_plot.png"))
 
 
     
-![png](README_files/README_12_0.png)
+![png](README_files/README_13_0.png)
     
 
