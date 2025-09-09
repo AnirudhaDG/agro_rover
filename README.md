@@ -2,40 +2,6 @@
 
 This notebook analyzes environmental data collected by the agro rover across the field. We'll import necessary libraries and load the cleaned sensor data for comprehensive analysis.
 
-## Import Libraries and Load Data
-
-First, we'll import all required libraries for data processing, visualization, and analysis. Then load the cleaned environmental data from the CSV file.
-
-
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import math
-import matplotlib.ticker as mticker
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
-from scipy.signal import savgol_filter
-from scipy.interpolate import griddata
-from sklearn.preprocessing import MinMaxScaler
-
-df = pd.read_csv("./capture_data/clean_data.csv")
-df.columns = df.columns.str.strip()
-```
-
-## Data Preprocessing
-
-Convert timestamps to datetime format and define the environmental metrics we'll analyze. These metrics include temperature, moisture, electrical conductivity, pH levels, and nutrient concentrations (N, P, K).
-
-
-```python
-df["timestamp"] = pd.to_datetime(df["timestamp"])
-df["time_str"] = df["timestamp"].dt.strftime("%H:%M:%S")
-
-# Metrics to visualize
-metrics = ["temperature_f", "moisture_pct", "ec_us_cm", "ph", "n_mg_kg", "p_mg_kg", "k_mg_kg"]
-```
 
 ## Time Series Analysis
 
@@ -90,7 +56,7 @@ plt.show()
 
 
     
-![png](README_files/README_5_0.png)
+![png](README_files/README_2_0.png)
     
 
 
@@ -144,7 +110,7 @@ plt.show()
 
 
     
-![png](README_files/README_7_0.png)
+![png](README_files/README_4_0.png)
     
 
 
@@ -201,7 +167,7 @@ plt.show()
 
 
     
-![png](README_files/README_9_0.png)
+![png](README_files/README_6_0.png)
     
 
 
@@ -224,7 +190,7 @@ plt.show()
 
 
     
-![png](README_files/README_11_0.png)
+![png](README_files/README_8_0.png)
     
 
 
@@ -283,7 +249,7 @@ plt.show()
 
 
     
-![png](README_files/README_13_0.png)
+![png](README_files/README_10_0.png)
     
 
 
@@ -306,6 +272,6 @@ display(Image("./support_images/map_plot.png"))
 
 
     
-![png](README_files/README_15_0.png)
+![png](README_files/README_12_0.png)
     
 
