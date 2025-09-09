@@ -473,10 +473,94 @@ Load and examine the coordinate data to understand the spatial coverage and samp
 
 
 ```python
-## Coordinate Data
 coor_data = pd.read_csv("./coordinate_data.csv")
 coor_data.head(10)
+```
 
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12.970372</td>
+      <td>79.156087</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12.970372</td>
+      <td>79.156086</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12.970372</td>
+      <td>79.156086</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12.970372</td>
+      <td>79.156084</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>12.970373</td>
+      <td>79.156082</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>12.970361</td>
+      <td>79.156098</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>12.970361</td>
+      <td>79.156098</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>12.970362</td>
+      <td>79.156098</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>12.970362</td>
+      <td>79.156098</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>12.970362</td>
+      <td>79.156097</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
 # Display the map plot
 from IPython.display import Image, display
 display(Image("./support_images/map_plot.png"))
@@ -484,6 +568,49 @@ display(Image("./support_images/map_plot.png"))
 
 
     
-![png](README_files/README_13_0.png)
+![png](README_files/README_14_0.png)
+    
+
+
+## Sample Field Images
+
+Display sample images captured by the agro rover during its field survey to provide visual context for the environmental data analysis.
+
+
+```python
+import matplotlib.image as mpimg
+
+# Create figure with 3 subplots side by side
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+# Load and display the three pictures
+image_paths = [
+    "./capture_data/picture1.jpg",
+    "./capture_data/picture2.jpg", 
+    "./capture_data/picture3.jpg"
+]
+
+titles = ["Picture 1", "Picture 2", "Picture 3"]
+
+for i, (path, title) in enumerate(zip(image_paths, titles)):
+    try:
+        img = mpimg.imread(path)
+        axes[i].imshow(img)
+        axes[i].set_title(title, fontsize=12)
+        axes[i].axis('off')  # Hide axes for cleaner look
+    except FileNotFoundError:
+        axes[i].text(0.5, 0.5, f'Image not found:\n{path}', 
+                     ha='center', va='center', transform=axes[i].transAxes)
+        axes[i].set_title(title, fontsize=12)
+        axes[i].axis('off')
+
+plt.tight_layout()
+plt.suptitle("Field Images Captured During Data Collection", fontsize=16, y=1.02)
+plt.show()
+```
+
+
+    
+![png](README_files/README_16_0.png)
     
 
