@@ -215,19 +215,13 @@ This notebook analyzes environmental data collected by the agro rover across the
 
 Create a comprehensive time series plot showing how each environmental metric changes over time. We'll display both raw data points and smoothed trend lines using Savitzky-Golay filtering to better visualize patterns and trends.
 
-
-    
-![png](README_files/README_5_0.png)
-    
-
-
 ### Normalized Metrics Comparison
 
 Normalize all environmental metrics to a 0-1 scale and plot them together. This allows us to compare the relative changes of different metrics on the same scale and identify correlations between various environmental parameters.
 
 
     
-![png](README_files/README_7_0.png)
+![png](README_files/README_4_0.png)
     
 
 
@@ -239,7 +233,7 @@ Visualize how each environmental metric varies across the field using scatter pl
 
 
     
-![png](README_files/README_9_0.png)
+![png](README_files/README_6_0.png)
     
 
 
@@ -251,7 +245,7 @@ Generate a correlation heatmap to understand the statistical relationships betwe
 
 
     
-![png](README_files/README_11_0.png)
+![png](README_files/README_8_0.png)
     
 
 
@@ -261,7 +255,7 @@ Create continuous spatial heatmaps using interpolation to show smooth distributi
 
 
     
-![png](README_files/README_13_0.png)
+![png](README_files/README_10_0.png)
     
 
 
@@ -355,7 +349,7 @@ Load and examine the coordinate data to understand the spatial coverage and samp
 
 
     
-![png](README_files/README_16_0.png)
+![png](README_files/README_13_0.png)
     
 
 
@@ -365,6 +359,6 @@ Display sample images captured by the agro rover during its field survey to prov
 
 
     
-![png](README_files/README_18_0.png)
+![png](README_files/README_15_0.png)
     
 
